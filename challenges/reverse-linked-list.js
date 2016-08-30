@@ -16,22 +16,20 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+
+  if (!head){
+    return undefined;
+  }
+
+  if (head.next === null){
+    return head;
+  }
   var node = new Node(value);
+
   var currentNode = head;
 
   var count = 0;
 
-  if (!currentNode){
-    head = node;
-    count++;
-    return head;
-  }
-
-  while (currentNode.next){
-    currentNode = currentNode.next;
-    currentNode = node;
-    count++;
-  }
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
