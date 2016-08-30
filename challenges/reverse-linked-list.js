@@ -15,6 +15,20 @@ function Node(value) {
     this.next = null;
 }
 
+function createList(array){
+  var head = new Node(array[0]);
+  var tail = head;
+
+  for (var i = 1; i < array.length; i++) {
+    var new_node = new Node(array[i]);
+
+    tail.next = new_node;
+    tail = new_node;
+  }
+
+  return head;
+}
+
 function reverseLinkedList(head) {
 
   if (!head){
@@ -24,12 +38,21 @@ function reverseLinkedList(head) {
   if (head.next === null){
     return head;
   }
-  var node = new Node(value);
 
-  var currentNode = head;
+  var curr = head;
+  var tail;
 
-  var count = 0;
+  while (curr){
+    tail = curr;
+    curr = curr.next;
+  }
+
+
 
 }
+
+var myLinkedList = createList([1,2,3,4,5]);
+
+console.log(reverseLinkedList(myLinkedList));
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
