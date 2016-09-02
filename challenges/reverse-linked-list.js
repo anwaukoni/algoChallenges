@@ -29,6 +29,35 @@ function createList(array){
   return head;
 }
 
+// function reverseLinkedList(head) {
+//
+//
+//   var listToReverse = [];
+//
+//   if (!head){
+//     return undefined;
+//   }
+//
+//   if (head.next === null){
+//     return head;
+//   }
+//
+//   var curr = head;
+//   // var tail;
+//
+//   while (curr){
+//     listToReverse.push(curr.value);
+//     // tail = curr;
+//     curr = curr.next;
+//   }
+//
+//   var myArray = listToReverse.reverse();
+//
+//
+//   return createList(myArray);
+//
+// }
+
 function reverseLinkedList(head) {
 
   if (!head){
@@ -40,18 +69,20 @@ function reverseLinkedList(head) {
   }
 
   var curr = head;
-  var tail;
+  var prev = null;
+  var next;
 
-  while (curr){
-    tail = curr;
-    curr = curr.next;
+  while (curr !== null){
+    next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
   }
 
-
-
+return prev;
 }
 
-var myLinkedList = createList([1,2,3,4,5]);
+var myLinkedList = createList([3,2,1]);
 
 console.log(reverseLinkedList(myLinkedList));
 
