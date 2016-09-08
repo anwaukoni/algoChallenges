@@ -8,7 +8,7 @@
  *
  */
 
-//TODO Check if this algorithm has been solved yet. If not, solve it.
+//TODO Write test for reverse-linked-list
 
 function Node(value) {
     this.value = value;
@@ -27,6 +27,31 @@ function createList(array){
   }
 
   return head;
+}
+
+
+function reverseLinkedList(head) {
+
+  if (!head){
+    return undefined;
+  }
+
+  if (head.next === null){
+    return head;
+  }
+
+  var curr = head;
+  var prev = null;
+  var next;
+
+  while (curr !== null){
+    next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+  }
+
+return prev;
 }
 
 // function reverseLinkedList(head) {
@@ -58,32 +83,9 @@ function createList(array){
 //
 // }
 
-function reverseLinkedList(head) {
 
-  if (!head){
-    return undefined;
-  }
-
-  if (head.next === null){
-    return head;
-  }
-
-  var curr = head;
-  var prev = null;
-  var next;
-
-  while (curr !== null){
-    next = curr.next;
-    curr.next = prev;
-    prev = curr;
-    curr = next;
-  }
-
-return prev;
-}
-
-var myLinkedList = createList([3,2,1]);
-
-console.log(reverseLinkedList(myLinkedList));
+// var myLinkedList = createList([3,2,1]);
+//
+// console.log(reverseLinkedList(myLinkedList));
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
