@@ -1,10 +1,16 @@
 /*
   The equilibrium index of a sequence is an index such that the sum of elements
   at lower index is equal to the sum of elements at higher indexes.
-  Ex: Array = [-7,1,5,2,-4,3,0]
+  Ex: A= [-7,1,5,2,-4,3,0]
+
+  A[0]+A[1]+A[2] === A[4]+A[5]+A[6]
 
   //Assume sum of zero elements === 0
 */
+
+
+
+
 
 // array = [500, -1, 1]
 // upperSum = 500
@@ -39,4 +45,4 @@ const searchEquilibriumIndex = array => {
 
 console.log(searchEquilibriumIndex([-7,1,5,2,-4,3,0]));
 
-console.log(searchEquilibriumIndex([-28,1,2,3,4,5,6,7,500]));
+// console.log(searchEquilibriumIndex([-28,1,2,3,4,5,6,7,500]));
