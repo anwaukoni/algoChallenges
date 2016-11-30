@@ -8,6 +8,7 @@
  * Return true or false
  *
  */
+//TODO add edge cases plus test
 
 function modemean(array) {
 

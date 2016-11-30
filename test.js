@@ -1,5 +1,6 @@
 const expect = require('chai').expect;
 const doubly-linked-list = require('./challenges/doubly-linked-list.cycle');
+const reverse-linked-list = require('./challenges/reverse-linked-list.js');
 
 
 describe("doubly-linked-list", () => {

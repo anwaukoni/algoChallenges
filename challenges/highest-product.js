@@ -4,7 +4,7 @@
 
 function highestProduct(array) {
 
-//Gus- Need to check for if theyre are negatives
+//TODO Need to check for if theyre are negatives
 
   var sortedArray = array.sort(function(a,b){
     return a - b;

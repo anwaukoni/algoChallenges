@@ -47,11 +47,11 @@ function kthToLastNode(k, head) {
     curr = curr.next;
   }
 
-  while(head !== null && head !== undefined){
-    if (head.count === linkedLength - k){
-      return head.value;
+  while(curr !== null && curr !== undefined){
+    if (curr.count === linkedLength - k){
+      return curr.value;
     }
-    head = head.next;
+    curr = curr.next;
   }
 
   return undefined;
