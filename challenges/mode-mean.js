@@ -9,8 +9,6 @@
  *
  */
 
-//TODO Use reduce methods for for-loop
-
 function modemean(array) {
 
 	//mode is the number that is repeated the most times
@@ -23,17 +21,17 @@ function modemean(array) {
 		return a + b;
 	})/len);
 
-const modeReducer = (tally, number)=>{
-	if(!tally[number]){
-		tally[number] = 1;
-	}else {
-		tally[number] = tally[number] + 1;
+	const modeReducer = (tally, number)=>{
+		if(!tally[number]){
+			tally[number] = 1;
+		}else {
+			tally[number] = tally[number] + 1;
+		}
+
+		return tally;
 	}
 
-	return tally;
-}
-
-const modeResult = array.reduce(modeReducer, modeStorage);
+	const modeResult = array.reduce(modeReducer, modeStorage);
 
 	var key = Object.keys(modeResult).reduce(function(a,b){
 		if (modeResult[a] > modeResult[b]){
@@ -43,7 +41,9 @@ const modeResult = array.reduce(modeReducer, modeStorage);
 		}
 	});
 
-	if(mean == key){
+	const mode = parseInt(key);
+
+	if(mean === mode){
 		return true;
 	}else{
 		return false;
@@ -52,5 +52,5 @@ const modeResult = array.reduce(modeReducer, modeStorage);
 }
 
 
-console.log(modemean([1,1,1,2,2,3,100]));
+console.log(modemean([1,1,1,1,1,2,100]));
 module.exports = modemean;

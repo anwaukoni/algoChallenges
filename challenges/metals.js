@@ -1,3 +1,5 @@
+//TODO Metals Question
+
 Mr Oct has recently shut down his factory and wants to sell
 off his metals to a local businessman. Mr Oct has many rods whose
 lengths are represented by array - lengths = {lengths[0], lengths[1], lengths[2],...}.
@@ -36,4 +38,4 @@ Explanation #00:
 Since cuts are pretty cheap, we can make large number of cuts to reduce the amount
 of waste. The optimal length of rods will be 6. We can cut 4 pieces of length 6
 from 1st rod then throw piece of length 2, then cut 17 pieces of length 6 from
-2nd rod and throw away a piece of length 1 
+2nd rod and throw away a piece of length 1
