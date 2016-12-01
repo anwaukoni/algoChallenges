@@ -1,10 +1,9 @@
 const expect = require('chai').expect;
-const doubly-linked-list = require('./challenges/doubly-linked-list.cycle');
-const reverse-linked-list = require('./challenges/reverse-linked-list.js');
+var  doublyLinkedList = require('./challenges/doubly-linked-list.js');
+// const reverse-linked-list = require('./challenges/reverse-linked-list.js');
 
 
-describe("doubly-linked-list", () => {
-  doubly-l
+describe(doublyLinkedList, () => {
   before(()=> {
   var myLinkedList = new LinkedList;
    myLinkedList.add(1);
@@ -22,7 +21,10 @@ describe("doubly-linked-list", () => {
     expect (myLinkedList.head.val).to.eql(1);
   });
 
-  it("should have no value 1", () => {
-    expect(myLinkedList.head.val).to.eql(1);
-  });
-})
+  // it("should have no value 1", () => {
+  //   expect(myLinkedList.head.val).to.eql(1);
+  // });
+});
+
+
+/*"test": "export COHORT=7; node test/run-tests.js",*/
