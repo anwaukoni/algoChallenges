@@ -1,9 +1,5 @@
-//TODO add remove function for doubly linked lust
-
 const expect = require('chai').expect;
-var  doublyLinkedList = require('./challenges/doubly-linked-list.js');
-
-// const myLinkedList = new doublyLinkedList;
+var  doublyLinkedList = require('./challenges/doubly-linked-list.js');  
 
 describe("add method to doublyLinkedList", () => {
   const myLinkedList = new doublyLinkedList;
@@ -86,11 +82,14 @@ describe('remove method from doubly linked list', () => {
   it("should have tail value be equal to 2 after removing tail", ()=>{
     myLinkedList.remove(4);
     expect(myLinkedList.tail.val).to.eql(2);
-    console.log(myLinkedList);
+    // console.log(myLinkedList);
   });
 
+  it('should have tail and head be equal to null if last node is removed from list', () => {
+    myLinkedList.remove(2);
+    console.log(myLinkedList);
+    expect(myLinkedList.head).to.eql(null);
+    expect(myLinkedList.tail).to.eql(null);
+  });
 
 });
-
-
-/*"test": "export COHORT=7; node test/run-tests.js",*/

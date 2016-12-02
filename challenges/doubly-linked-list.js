@@ -61,6 +61,11 @@ LinkedList.prototype.remove = function(val) {
         this.tail = nodeBeforeCurr;
         nodeBeforeCurr.next= null;
       }
+
+      if (nodeBeforeCurr === null && nodeAfterCurr === null){
+        this.head = null;
+        this.tail = null;
+      }
     }
 
     curr = curr.next;
