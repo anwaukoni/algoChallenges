@@ -73,15 +73,22 @@ describe('remove method from doubly linked list', () => {
     expect(myLinkedList.head.val).to.eql(2);
   });
 
-  it("should have next node after head be equal to 4", ()=>{
+  it("should have next node after head be equal to 4 after removing node(3)", ()=>{
     myLinkedList.remove(3);
-    console.log(myLinkedList);
     expect(myLinkedList.head.next.val).to.eql(4);
   });
 
-  it("should have value before 4 be equal to 2", ()=>{
+  it("should have value previous to 4 be equal to 2", ()=>{
     expect(myLinkedList.tail.prev.val).to.eql(2);
   });
+
+
+  it("should have tail value be equal to 2 after removing tail", ()=>{
+    myLinkedList.remove(4);
+    expect(myLinkedList.tail.val).to.eql(2);
+    console.log(myLinkedList);
+  });
+
 
 });
 
