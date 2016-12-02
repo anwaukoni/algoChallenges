@@ -4,6 +4,7 @@
 Create a doubly linked list with an add and remove method
  */
 
+
 function LinkedList() {
   this.head = null;
   this.tail = null;
@@ -49,14 +50,14 @@ LinkedList.prototype.remove = function(val) {
         nodeAfterCurr.prev = nodeBeforeCurr;
       }
 
-      //if just head node
-      if(nodeAfterCurr){
+      //if just head node restructure so theres is a new head node
+      if (nodeAfterCurr && nodeBeforeCurr === null){
         this.head = nodeAfterCurr;
         nodeAfterCurr.prev = null;
       }
 
-      //if just tail node
-      if (nodeBeforeCurr){
+      //if just tail node restructure so there is a new tail node
+      if (nodeBeforeCurr && nodeAfterCurr === null){
         this.tail = nodeBeforeCurr;
         nodeBeforeCurr.next= null;
       }
