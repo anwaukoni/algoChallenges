@@ -62,6 +62,7 @@ LinkedList.prototype.remove = function(val) {
         nodeBeforeCurr.next= null;
       }
 
+      //if  just a singular node in the linked list
       if (nodeBeforeCurr === null && nodeAfterCurr === null){
         this.head = null;
         this.tail = null;
