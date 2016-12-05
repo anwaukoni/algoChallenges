@@ -1,7 +1,8 @@
 const expect = require('chai').expect;
-var  doublyLinkedList = require('./challenges/doubly-linked-list.js');  
+var  doublyLinkedList = require('./challenges/doubly-linked-list.js');
+var modemean  = require ('./challenges/mode-mean.js');
 
-describe("add method to doublyLinkedList", () => {
+describe ("add method to doublyLinkedList", () => {
   const myLinkedList = new doublyLinkedList;
   before(()=> {
    myLinkedList.add(1);
@@ -52,7 +53,6 @@ describe("add method to doublyLinkedList", () => {
   });
 
 });
-// console.log(myLinkedList);
 
 describe('remove method from doubly linked list', () => {
   //use remove method from doubly linked list
@@ -82,14 +82,32 @@ describe('remove method from doubly linked list', () => {
   it("should have tail value be equal to 2 after removing tail", ()=>{
     myLinkedList.remove(4);
     expect(myLinkedList.tail.val).to.eql(2);
-    // console.log(myLinkedList);
   });
 
   it('should have tail and head be equal to null if last node is removed from list', () => {
     myLinkedList.remove(2);
-    console.log(myLinkedList);
     expect(myLinkedList.head).to.eql(null);
     expect(myLinkedList.tail).to.eql(null);
+  });
+
+});
+
+describe.only("modemean function", () => {
+
+  it ('should give undefined when the array is empty', ()=>{
+    expect(modemean([])).to.eql(undefined);
+  });
+
+  it ('should be true when mode equals mean', () => {
+    expect(modemean([0,0,0,0,0])).to.eql(true);
+    expect(modemean([1,1,1,1,1])).to.eql(true);
+    expect(modemean([11111,11111,11111,11111,11111])).to.eql(true);
+  });
+
+  it ('should be false when mode does not equal mean', () => {
+    expect(modemean([1,1,1,1,1,2,100])).to.eql(false);
+    expect(modemean([20,30,40,50])).to.eql(false);
+    expect(modemean([100,100,300,500,600])).to.eql(false);
   });
 
 });

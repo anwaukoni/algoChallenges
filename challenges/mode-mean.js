@@ -15,10 +15,15 @@ function modemean(array) {
 	//mode is the number that is repeated the most times
 
 
-	var modeStorage = {};
-	var modeVal= [];
-	var len = array.length;
-	var mean = Math.floor(array.reduce(function(a,b){
+	const modeStorage = {};
+	const modeVal= [1,2,3,4];
+	const len = array.length;
+
+	if (array.length === 0){
+		return undefined;
+	}
+
+	const mean = Math.floor(array.reduce(function(a,b){
 		return a + b;
 	})/len);
 
@@ -34,7 +39,7 @@ function modemean(array) {
 
 	const modeResult = array.reduce(modeReducer, modeStorage);
 
-	var key = Object.keys(modeResult).reduce(function(a,b){
+	const key = Object.keys(modeResult).reduce(function(a,b){
 		if (modeResult[a] > modeResult[b]){
 			return a
 		} else {
@@ -52,6 +57,4 @@ function modemean(array) {
 
 }
 
-
-console.log(modemean([1,1,1,1,1,2,100]));
 module.exports = modemean;
