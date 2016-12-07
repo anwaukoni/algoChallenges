@@ -1,8 +1,9 @@
 const expect = require('chai').expect;
 var  doublyLinkedList = require('./challenges/doubly-linked-list.js');
 var modemean  = require ('./challenges/mode-mean.js');
+var commonElements = require ('./challenges/common-elements.js')
 
-describe ("add method to doublyLinkedList", () => {
+describe ("doubly linked list add method", () => {
   const myLinkedList = new doublyLinkedList;
   before(()=> {
    myLinkedList.add(1);
@@ -12,19 +13,19 @@ describe ("add method to doublyLinkedList", () => {
   });
 
 
-  it("should have head equal to value 1", () => {
+  it ("should have head equal to value 1", () => {
     expect (myLinkedList.head.val).to.eql(1);
   });
 
-  it('should add new node(2)', () => {
+  it ('should add new node(2)', () => {
     expect(myLinkedList.head.next.val).to.eql(2);
   });
 
-  it('should add new node(3)', () => {
+  it ('should add new node(3)', () => {
     expect(myLinkedList.head.next.next.val).to.eql(3);
   });
 
-  it('should add new node(4)', () => {
+  it ('should add new node(4)', () => {
     expect(myLinkedList.head.next.next.next.val).to.eql(4);
   });
 
@@ -54,7 +55,7 @@ describe ("add method to doublyLinkedList", () => {
 
 });
 
-describe('remove method from doubly linked list', () => {
+describe('doubly-linked list remove method', () => {
   //use remove method from doubly linked list
   const myLinkedList = new doublyLinkedList;
   before(()=>{
@@ -92,7 +93,7 @@ describe('remove method from doubly linked list', () => {
 
 });
 
-describe.only("modemean function", () => {
+describe ("modemean function", () => {
 
   it ('should give undefined when the array is empty', ()=>{
     expect(modemean([])).to.eql(undefined);
@@ -110,4 +111,27 @@ describe.only("modemean function", () => {
     expect(modemean([100,100,300,500,600])).to.eql(false);
   });
 
+});
+
+describe.only ("common-elements function",() => {
+  let array1 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
+  let array2  = [15,9,9,'ferret',9,26,12,12,'dog'];
+  let array3 = [23,12,12,77,'ferret',9,88,100,'dog'];
+  let array4 = ['ferret',12,12,45,9,66,77,78,2000];
+
+  it ("should return an array with the common elements of four arrays", () => {
+    expect(commonElements(array1, array2, array3, array4)).to.eql([12, "ferret"])
+  });
+
+  it ("should return \"nothing in common\"", () => {
+    let array
+    expect(commonElements([],[],[],[])).to.eql("nothing in Common");
+    expect(commonElements()).to.eql("nothing in Common");
+
+
+  });
+
+  it('should return undefined if any of the four arrays does not exist', () => {
+
+  });
 });
