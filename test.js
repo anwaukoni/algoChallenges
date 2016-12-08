@@ -93,7 +93,7 @@ describe('doubly-linked list remove method', () => {
 
 });
 
-describe ("modemean function", () => {
+describe.only ("modemean function", () => {
 
   it ('should give undefined when the array is empty', ()=>{
     expect(modemean([])).to.eql(undefined);
@@ -123,15 +123,9 @@ describe.only ("common-elements function",() => {
     expect(commonElements(array1, array2, array3, array4)).to.eql([12, "ferret"])
   });
 
-  it ("should return \"nothing in common\"", () => {
-    let array
-    expect(commonElements([],[],[],[])).to.eql("nothing in Common");
-    expect(commonElements()).to.eql("nothing in Common");
-
-
-  });
-
-  it('should return undefined if any of the four arrays does not exist', () => {
-
+  it ("should return \"Nothing in Common!\"", () => {
+    let array4 = [45,66,77,78,2000]
+    expect(commonElements([],[],[],[])).to.eql("Nothing in Common!");
+    expect(commonElements(array1, array2, array3, array4)).to.eql('Nothing in Common!');
   });
 });
