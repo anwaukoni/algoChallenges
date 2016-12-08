@@ -8,10 +8,6 @@
   var array3 = [23,12,12,77,'ferret',9,88,100,'dog'];
   var array4 = ['ferret',12,12,45,9,66,77,78,2000];
 
-  // [];
-
-  // ['ferret',12,12,45,9,66,77,78,2000];
-
 // your output would be [ 12, 'ferret']
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
@@ -20,25 +16,15 @@
 
 function commonElements(array1, array2, array3, array4){
 
-  if (array1.length === 0 ||
-      array2.length === 0 ||
-      array3.length === 0 ||
-      array4.length === 0
-  )
-  {
-    return "Nothing in Common!";
-  }
 
   const createUniqueArray = function(array){
-    const sortedArray = array.sort((a,b)=>{
-      return a - b ;
-    });
+    const sortedArray = array.sort();
     const uniqueArrayResults = [];
     let temp;
-    for (let i = 0; i < array.length; i++){
-      if (array[i] !== temp){
-        temp = array[i];
-        uniqueArrayResults.push(array[i]);
+    for (let i = 0; i < sortedArray.length; i++){
+      if (sortedArray[i] !== temp){
+        temp = sortedArray[i];
+        uniqueArrayResults.push(sortedArray[i]);
       }
     }
 
@@ -57,7 +43,7 @@ function commonElements(array1, array2, array3, array4){
     if (!tally[count]){
       tally[count] = 1;
     }else{
-      tally[count] = tally[count]  + 1;
+      tally[count] += 1;
     }
 
     return tally;
@@ -68,27 +54,68 @@ function commonElements(array1, array2, array3, array4){
   const reduceArrayThree = uniqueArrayThree.reduce(createDictionary, reduceArrayTwo);
   const reduceArrayFour = uniqueArrayFour.reduce(createDictionary, reduceArrayThree);
 
+
   for (key in reduceArrayFour){
     if (reduceArrayFour[key] === 4){
-      if (typeof parseInt(key) === 'number'){
-        results.push(parseInt(key));
-      }
+        var e = parseInt(key);
 
-      // else{
-      //   results.push(key);
-      // }
-    }
+        if (!isNaN(e)) {
+            results.push(e);
+        } else {
+            results.push(key);
+        }
+      }
   }
 
   if (results.length > 0){
     return results;
   }else {
-    return "Nothing in Common";
+    return "Nothing in Common!";
   }
 
 }
 
 
-console.log(commonElements(array1, array2, array3, array4));
+// console.log(commonElements(array1, array2, array3, array4));
 
 module.exports = commonElements;
+
+
+// The answer below is Zaga's answer to this question
+// It uses a helper function that is fed each array
+// Helper function forms a dictionary is one array
+// Then uses the elemeents of the array to compare to the first array
+
+// var intersectionResult
+//
+// const intersect = function(A, B) {
+//   if (A == undefined || B == undefined) {
+//     return [];
+//   }
+//
+//   var dict = {};
+//
+//   for(var i = 0; i < B.length; i++) {
+//     dict[B[i]] = true;
+//   }
+//
+//   var results = [];
+//
+//   for(var i = 0; i < A.length; i++) {
+//     if (results.indexOf(A[i]) == -1 && dict[A[i]]) {
+//       results.push(A[i]);
+//     }
+//   }
+//
+//   return results;
+// }
+//
+// intersectionResult = intersect(array1, array2);
+// intersectionResult = intersect(intersectionResult, array3);
+// intersectionResult = intersect(intersectionResult, array4);
+//
+// if (intersectionResult.length == 0) {
+//   return "Nothing in Common!";
+// } else {
+//   return intersectionResult;
+// }
