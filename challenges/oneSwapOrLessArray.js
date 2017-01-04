@@ -7,6 +7,9 @@ function arraySwap(array){
 
   for (var i = 0; i < array.length; i++){
     if (array[i] > array[i+1]){
+      if (array[i+1] === array[array.length - 1]){
+        return true;
+      }
         temp = i;
         break;
     }
@@ -14,18 +17,7 @@ function arraySwap(array){
 
   if (temp === -1) return true;
 
-  //for array = [1,2,1]: forloop destination needs to change to have less than and equal to sign
-  //for (var j = temp + 1; j < array.length - 1; j++){
-  // if (array.length)
-
-
-
-  // && array[j+1] > array[temp]
-
   for (var j = temp + 1; j < array.length; j++){
-
-    console.log ('inside second for loop');
-      // if (array[j] < array[temp]){
 
     //takes care of console.log([1,2,1,2])
     if (array[j] < array[temp] && array[j+1] >= array[temp]){
@@ -49,8 +41,9 @@ function arraySwap(array){
       array[temp] = t;
       break;
     }
-  }
 
+
+  }
 
   var temp = -1;
   for (var i = 0; i < array.length; i++){
@@ -65,8 +58,9 @@ function arraySwap(array){
   return false;
 }
 
-console.log(arraySwap([1,2,1])); // true
-console.log(arraySwap([3,3,3,1])); //true
-console.log(arraySwap([2,1])) // true
-console.log(arraySwap([1])); // true
+// console.log(arraySwap([1,2,1,2])); // true
+// console.log(arraySwap([1,2,1])); // true
+// console.log(arraySwap([3,3,3,1])); //true
+// console.log(arraySwap([2,1])) // true
+// console.log(arraySwap([1])); // true
 module.exports = arraySwap;
