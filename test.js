@@ -1,7 +1,8 @@
 const expect = require('chai').expect;
 var  doublyLinkedList = require('./challenges/doubly-linked-list.js');
 var modemean  = require ('./challenges/mode-mean.js');
-var commonElements = require ('./challenges/common-elements.js')
+var commonElements = require ('./challenges/common-elements.js');
+var arraySwap = require ('./challenges/oneSwapOrLessArray.js');
 
 describe ("doubly linked list add method", () => {
   const myLinkedList = new doublyLinkedList;
@@ -93,7 +94,7 @@ describe('doubly-linked list remove method', () => {
 
 });
 
-describe.only ("modemean function", () => {
+describe ("modemean function", () => {
 
   it ('should give undefined when the array is empty', ()=>{
     expect(modemean([])).to.eql(undefined);
@@ -113,7 +114,7 @@ describe.only ("modemean function", () => {
 
 });
 
-describe.only ("common-elements function",() => {
+describe ("common-elements function",() => {
   let array1 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
   let array2  = [15,9,9,'ferret',9,26,12,12,'dog'];
   let array3 = [23,12,12,77,'ferret',9,88,100,'dog'];
@@ -127,5 +128,32 @@ describe.only ("common-elements function",() => {
     let array4 = [45,66,77,78,2000]
     expect(commonElements([],[],[],[])).to.eql("Nothing in Common!");
     expect(commonElements(array1, array2, array3, array4)).to.eql('Nothing in Common!');
+  });
+});
+
+describe.only("oneSwaporLessArray function", () => {
+
+  it ('should return true when the array is empty', () => {
+    expect(arraySwap([])).to.eql(true);
+  });
+
+  it ('should be true when the array already comes sorted', () => {
+    expect (arraySwap([1,2,3,4,5])).to.eql(true);
+    expect (arraySwap([1,1,1,1])).to.eql(true);
+    expect (arraySwap([1,2])).to.eql(true);
+  });
+
+  it ('should be true with the following unsorted elements number in the array', () => {
+    expect (arraySwap([1,2,1])).to.eql(true);
+    expect (arraySwap([1,2,1,2])).to.eql(true);
+    expect (arraySwap([1,3,5])).to.eql(true);
+    expect (arraySwap([1,5,3])).to.eql(true);
+    expect (arraySwap([1,4,5,6,7,2])).to.eql(true);
+  });
+
+  it ('should be false with the following unsorted elements in the array', () => {
+    expect (arraySwap([1,3,6,3,5,5,3,7,7])).to.eql(false);
+    expect (arraySwap([1,2,3,4,5,6,7,8,9,10,11,2,45,56,67,78,89,90,123,124,1245566778])).to.eql(false);
+    expect (arraySwap([1,2,3,4,5,6,7,8,9,10,11,2,45,56,67,78,89,90,2,123,124,1245566778])).to.eql(false);
   });
 });
